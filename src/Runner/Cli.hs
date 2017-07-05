@@ -22,7 +22,8 @@ pinfo = info
   (   helper
   <*> options )
   (  fullDesc
-  <> header "Surpass Travis no-output timeout" )
+  <> header "Surpass Travis no-output timeout, \
+            \like travis_wait but preserve process output" )
 
 pCmd :: Parser String
 pCmd = strArgument (metavar "CMD")
