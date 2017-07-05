@@ -36,7 +36,7 @@ pMsg :: Parser String
 pMsg = strOption
   ( long "message" <>
     short 'm' <>
-    value "Nu Travis, pogodi!" <>
+    value "Nu, Travis, pogodi!" <>
     showDefaultWith id <>
     help "message printed to stdout" )
 
