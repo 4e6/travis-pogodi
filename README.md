@@ -1,5 +1,8 @@
 # travis-pogodi
 
+[![Build Status](https://travis-ci.org/4e6/travis-pogodi.svg?branch=master)](https://travis-ci.org/4e6/travis-pogodi)
+
+
 ![Wolf](http://img0.liveinternet.ru/images/attach/c/10/127/350/127350084_104456268_02.png)
 
 An alternative implementation of [Travis CI][no-output-timeout] `travis_wait` script.
