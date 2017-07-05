@@ -1,0 +1,33 @@
+sudo: false
+
+language: generic
+
+cache:
+  directories:
+    - $HOME/.ghc
+    - $HOME/.cabal
+
+matrix:
+  include:
+    - env: CABALVER=1.24 GHCVER=7.10.3
+      compiler: "#GHC 7.10.3"
+      addons: {apt: {packages: [cabal-install-1.24,ghc-7.10.3], sources: [hvr-ghc]}}
+
+    - env: CABALVER=1.24 GHCVER=8.0.2
+      compiler: "#GHC 8.0.2"
+      addons: {apt: {packages: [cabal-install-1.24,ghc-8.0.2], sources: [hvr-ghc]}}
+
+before_install:
+ - unset CC
+ - export PATH=$HOME/.cabal/bin:/opt/ghc/$GHCVER/bin:/opt/cabal/$CABALVER/bin:$PATH
+
+install:
+  - cabal --version;
+  - travis_retry cabal update;
+  - cabal install --only-dependencies --force-reinstalls --reorder-goals --max-backjumps=-1
+
+script:
+  - cabal configure
+  - cabal build;
+  - cabal install --force-reinstalls
+  - travis-pogodi -d1 -- sleep 2
