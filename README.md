@@ -13,4 +13,9 @@ Unlike `travis_wait` it doesn't block output of the command it executes.
 travis-pogodi [OPTIONS] CMD [-- ARGS]
 ```
 
+```
+$ travis-pogodi -d1 -- sleep 2
+Nu, Travis, pogodi!
+```
+
 [no-output-timeout]: https://docs.travis-ci.com/user/common-build-problems/#Build-times-out-because-no-output-was-received
