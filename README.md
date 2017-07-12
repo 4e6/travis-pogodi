@@ -11,10 +11,16 @@ Unlike `travis_wait` it doesn't block output of the command it executes.
 
 ```
 travis-pogodi [OPTIONS] CMD [-- ARGS]
+
+Available options:
+  -h,--help                Show this help text
+  -m,--message ARG         message printed to
+                           stdout (default: Nu, Travis, pogodi!)
+  -n,--interval ARG        interval between messages in seconds (default: 600)
 ```
 
 ```
-$ travis-pogodi -d1 -- sleep 2
+$ travis-pogodi -n1 -- sleep 2
 Nu, Travis, pogodi!
 ```
 

@@ -30,4 +30,4 @@ script:
   - cabal configure
   - cabal build;
   - cabal install --force-reinstalls
-  - travis-pogodi -d1 -- sleep 2
+  - travis-pogodi -n1 -- sleep 2

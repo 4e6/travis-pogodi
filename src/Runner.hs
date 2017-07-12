@@ -15,7 +15,7 @@ run = do
   Options{..} <- execParser pinfo
   (_, _, _, h) <- SP.createProcess (SP.proc optCmd optArgs)
   _ <- forkIO . forever $ do
-    threadDelay $ optDelay * 1000000
+    threadDelay $ optInterval * 1000000
     putStrLn optMsg
   exitCode <- SP.waitForProcess h
   SE.exitWith exitCode

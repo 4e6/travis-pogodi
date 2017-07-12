@@ -5,17 +5,17 @@ import Options.Applicative as Opts
 
 
 data Options = Options
-  { optCmd   :: String
-  , optArgs  :: [String]
-  , optMsg   :: String
-  , optDelay :: Int }
+  { optCmd      :: String
+  , optArgs     :: [String]
+  , optMsg      :: String
+  , optInterval :: Int }
 
 options :: Parser Options
 options = Options
   <$> pCmd
   <*> pArgs
   <*> pMsg
-  <*> pDelay
+  <*> pInterval
 
 pinfo :: ParserInfo Options
 pinfo = info
@@ -40,10 +40,10 @@ pMsg = strOption
     showDefaultWith id <>
     help "message printed to stdout" )
 
-pDelay :: Parser Int
-pDelay = option auto
-  ( long "delay" <>
-    short 'd' <>
+pInterval :: Parser Int
+pInterval = option auto
+  ( long "interval" <>
+    short 'n' <>
     value 600 <>
     showDefaultWith show <>
-    help "delay between messages in seconds")
+    help "interval between messages in seconds")
